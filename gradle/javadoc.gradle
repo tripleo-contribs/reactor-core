@@ -21,17 +21,17 @@ javadoc {
 	// rendered in method return type positions. Java 8's javadoc silently drops them
 	// due to https://bugs.openjdk.org/browse/JDK-8175390.
 	javadocTool = javaToolchains.javadocToolFor {
-		languageVersion = JavaLanguageVersion.of(21)
+		languageVersion = JavaLanguageVersion.of(17)
 	}
 	dependsOn jar
 	group = "documentation"
 	description = "Generates aggregated Javadoc API documentation."
 
 	title = "${project.name} $version"
+	options.source = "1.8"
 	options.addStringOption('charSet', 'UTF-8')
 	options.author = true
 	options.header = "$project.name"
-	options.stylesheetFile = file("$rootDir/docs/api/stylesheet.css")
 
 	options.memberLevel = JavadocMemberLevel.PROTECTED
 
